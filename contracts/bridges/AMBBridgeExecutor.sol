@@ -89,7 +89,7 @@ contract AMBBridgeExecutor is BridgeExecutorBase {
   /// @dev Set the AMB contract address
   /// @param _amb Address of the AMB contract
   /// @notice This can only be called by the owner
-  function setAmb(address _amb) public onlyOwner {
+  function setAmb(address _amb) public onlyThis {
     require(address(amb) != _amb, "AMB address already set to this");
     amb = IAMB(_amb);
   }
@@ -97,7 +97,7 @@ contract AMBBridgeExecutor is BridgeExecutorBase {
   /// @dev Set the approved chainId
   /// @param _chainId ID of the approved network
   /// @notice This can only be called by the owner
-  function setChainId(bytes32 _chainId) public onlyOwner {
+  function setChainId(bytes32 _chainId) public onlyThis {
     require(chainId != _chainId, "chainId already set to this");
     chainId = _chainId;
   }
@@ -105,7 +105,7 @@ contract AMBBridgeExecutor is BridgeExecutorBase {
   /// @dev Set the controller address
   /// @param _controller Set the address of controller on the other side of the bridge
   /// @notice This can only be called by the owner
-  function setController(address _controller) public onlyOwner {
+  function setController(address _controller) public onlyThis {
     require(controller != _controller, "controller already set to this");
     controller = _controller;
   }
