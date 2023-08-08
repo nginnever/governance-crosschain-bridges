@@ -18,11 +18,10 @@ interface IAMB {
 }
 
 /**
- * @title PolygonBridgeExecutor
+ * @title AMBBridgeExecutor
  * @author Aave
- * @notice Implementation of the Polygon Bridge Executor, able to receive cross-chain transactions from Ethereum
- * @dev Queuing an ActionsSet into this Executor can only be done by the FxChild and after passing the EthereumGovernanceExecutor check
- * as the FxRoot sender
+ * @notice Implementation of the AMB Bridge Executor, able to receive cross-chain transactions from Ethereum
+ * @dev 
  */
 contract AMBBridgeExecutor is BridgeExecutorBase {
   error UnauthorizedAMB();
@@ -35,7 +34,7 @@ contract AMBBridgeExecutor is BridgeExecutorBase {
   bytes32 public chainId;
 
   /**
-   * @dev Only FxChild can call functions marked by this modifier.
+   * @dev 
    **/
   /// @dev Check that the amb, chainId, and owner are valid
   modifier onlyValid() {
@@ -56,7 +55,7 @@ contract AMBBridgeExecutor is BridgeExecutorBase {
   constructor(
     IAMB _amb,
     address _controller,
-    bytes32 _chainId
+    bytes32 _chainId,
     uint256 delay,
     uint256 gracePeriod,
     uint256 minimumDelay,
